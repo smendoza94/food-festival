@@ -14,13 +14,13 @@ module.exports = {
     tickets: "./assets/js/tickets.js",
   },
   output: {
-    filename: "[name].bundle.js",
     path: __dirname + "/dist",
+    filename: "[name].bundle.js",
   },
   module: {
     rules: [
       {
-        test: /\.jpg$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: "file-loader",
@@ -44,10 +44,10 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery",
     }),
-    // new BundleAnalyzerPlugin({
-    //   // the report outputs to an HTML file in the dist folder
-    //   analyzerMode: "static",
-    // }),
+    new BundleAnalyzerPlugin({
+      // the report outputs to an HTML file in the dist folder
+      analyzerMode: "static",
+    }),
   ],
   mode: "development",
 };
